@@ -1,0 +1,44 @@
+{
+    "storages": ["SQL"],
+    "default": "Postman Collection",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "id": "PostmanCollection",
+    "title": "Postman Collection",
+    "type": "object",
+    "properties": {
+        "code": {
+            "storages": ["SQL"],
+            "nullable": false,
+            "minLength": 1,
+            "description": "Code of postman collection",
+            "readOnly": false,
+            "versionable": false,
+            "id": "CE_PostmanCollection_code",
+            "title": "PostmanCollection.code",
+            "type": "string",
+            "maxLength": 255
+        },
+        "content": {
+            "storages": ["SQL"],
+            "nullable": true,
+            "description": "Content of postman collection",
+            "readOnly": false,
+            "versionable": false,
+            "id": "CE_PostmanCollection_content",
+            "title": "PostmanCollection.content",
+            "type": "string"
+        },
+        "contentHash": {
+            "storages": ["SQL"],
+            "nullable": true,
+            "description": "Hashed content",
+            "readOnly": false,
+            "versionable": false,
+            "id": "CE_PostmanCollection_contentHash",
+            "title": "PostmanCollection.contentHash",
+            "type": "string",
+            "maxLength": 42
+        }
+    },
+    "required": ["code"]
+}

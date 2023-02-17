@@ -1,0 +1,12 @@
+{
+  "code" : "PostmanCollection",
+  "name" : "Postman Collection",
+  "description" : "Postman Collection",
+  "customEntityCategoryCode" : "postmanTestPlan",
+  "availableStorages" : [ "SQL" ],
+  "sqlStorageConfiguration" : {
+    "storeAsTable" : true
+  },
+  "samples" : [ ],
+  "audited" : false
+}

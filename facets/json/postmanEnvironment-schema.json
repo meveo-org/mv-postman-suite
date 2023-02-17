@@ -1,0 +1,44 @@
+{
+    "storages": ["SQL"],
+    "default": "Postman Environment",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "id": "postmanEnvironment",
+    "title": "Postman Environment",
+    "type": "object",
+    "properties": {
+        "code": {
+            "storages": ["SQL"],
+            "nullable": false,
+            "minLength": 1,
+            "description": "Code of postman environment",
+            "readOnly": false,
+            "versionable": false,
+            "id": "CE_postmanEnvironment_code",
+            "title": "postmanEnvironment.code",
+            "type": "string",
+            "maxLength": 255
+        },
+        "content": {
+            "storages": ["SQL"],
+            "nullable": true,
+            "description": "Content of postman environment",
+            "readOnly": false,
+            "versionable": false,
+            "id": "CE_postmanEnvironment_content",
+            "title": "postmanEnvironment.content",
+            "type": "string"
+        },
+        "contentHash": {
+            "storages": ["SQL"],
+            "nullable": true,
+            "description": "Hashed content",
+            "readOnly": false,
+            "versionable": false,
+            "id": "CE_postmanEnvironment_contentHash",
+            "title": "postmanEnvironment.contentHash",
+            "type": "string",
+            "maxLength": 42
+        }
+    },
+    "required": ["code"]
+}

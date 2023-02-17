@@ -1,0 +1,12 @@
+{
+  "code" : "postmanEnvironment",
+  "name" : "Postman Environment",
+  "description" : "Postman Environment",
+  "customEntityCategoryCode" : "postmanTestPlan",
+  "availableStorages" : [ "SQL" ],
+  "sqlStorageConfiguration" : {
+    "storeAsTable" : true
+  },
+  "samples" : [ ],
+  "audited" : false
+}
