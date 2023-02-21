@@ -77,7 +77,7 @@ public class SavePostmanCollection extends Script {
                 try {
                     crossStorageApi.createOrUpdate(defaultRepo, postmanTestCollection);
                 } catch (Exception e) {
-                    throw new RuntimeException("Failed to save followed merchant.", e);
+                    throw new RuntimeException("Failed to save postman collection.", e);
                 }
             }
         } catch (Exception ex) {

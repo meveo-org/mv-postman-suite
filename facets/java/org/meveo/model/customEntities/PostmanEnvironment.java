@@ -7,12 +7,12 @@ import org.meveo.model.persistence.DBStorageType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class postmanEnvironment implements CustomEntity, Serializable {
+public class PostmanEnvironment implements CustomEntity, Serializable {
 
-    public postmanEnvironment() {
+    public PostmanEnvironment() {
     }
 
-    public postmanEnvironment(String uuid) {
+    public PostmanEnvironment(String uuid) {
         this.uuid = uuid;
     }
 
@@ -71,6 +71,6 @@ public class postmanEnvironment implements CustomEntity, Serializable {
 
     @Override()
     public String getCetCode() {
-        return "postmanEnvironment";
+        return "PostmanEnvironment";
     }
 }
