@@ -1,0 +1,1 @@
+{"code":"ConvertToApiTestingEnv","description":"Convert to Api Testing Environment","appliesTo":"CE_PostmanEnvironment","label":"Convert to Api Testing","script":"org.meveo.postman.ConvertTestEnvironment","applicableToEntityList":true,"applicableToEntityInstance":false,"scriptParameters":{}}

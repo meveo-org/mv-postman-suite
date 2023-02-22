@@ -49,6 +49,7 @@ public class ConvertTestEnvironment extends Script {
     private MeveoModuleService moduleService = getCDIBean(MeveoModuleService.class);
 	private Repository defaultRepo = repositoryService.findDefaultRepository();
     private CurrentUserProducer currentUserProducer = getCDIBean(CurrentUserProducer.class);
+    private final MeveoUser currentUser = currentUserProducer.getCurrentUser();  
 
     private String result;
     public String getResult() {
@@ -86,12 +87,12 @@ public class ConvertTestEnvironment extends Script {
         }
         catch (Exception ex) {
             result = getStackTrace(ex);
-            // throw new RuntimeException("Failed to save api testing environment.", ex);
+            // throw new RuntimeException("Failed to convert postman environment to api testing environment.", ex);
         }
         
     }
 
-    public apiTestEnvironment loadEnvironment(PostmanEnvironment postmanEnv) throws IOException {
+    public ApiTestEnvironment loadEnvironment(PostmanEnvironment postmanEnv) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> map = mapper.readValue(postmanEnv.getContent(), Map.class);        
 
@@ -114,7 +115,7 @@ public class ConvertTestEnvironment extends Script {
 			}
 		}
         
-        apiTestEnvironment testEnv = new apiTestEnvironment();
+        ApiTestEnvironment testEnv = new ApiTestEnvironment();
         testEnv.setName(postmanEnv.getCode());
         testEnv.setVariables(resultData);
 
@@ -127,5 +128,21 @@ public class ConvertTestEnvironment extends Script {
         throwable.printStackTrace(pw);
         return sw.getBuffer().toString();
    }
+
+//    private Credential getCurrentCredential() {
+//         try {
+//             Credential credentials = CredentialHelperService.getCredential(PayTechClientV2.PAYTECH_DOMAIN, crossStorageApi, defaultRepo);
+//             if (credentials == null) {
+//                 throw new BusinessException("No credentials found for " + PayTechClientV2.PAYTECH_DOMAIN);
+//             } else {
+//                 log.info("using credentials {} with username {}", credentials.getUuid(), credentials.getUsername());
+//             }
+
+//             return credentials;
+//         }
+//         catch (Exception ex) {
+//             return null;
+//         }
+//    }
 
 }
