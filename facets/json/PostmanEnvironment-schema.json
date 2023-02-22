@@ -26,17 +26,6 @@
             "id": "CE_PostmanEnvironment_content",
             "title": "PostmanEnvironment.content",
             "type": "string"
-        },
-        "contentHash": {
-            "storages": ["SQL"],
-            "nullable": true,
-            "description": "Hashed content",
-            "readOnly": false,
-            "versionable": false,
-            "id": "CE_PostmanEnvironment_contentHash",
-            "title": "PostmanEnvironment.contentHash",
-            "type": "string",
-            "maxLength": 42
         }
     },
     "required": ["code"]

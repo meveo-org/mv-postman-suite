@@ -26,8 +26,6 @@ public class PostmanEnvironment implements CustomEntity, Serializable {
 
     private String content;
 
-    private String contentHash;
-
     @Override()
     public String getUuid() {
         return uuid;
@@ -59,14 +57,6 @@ public class PostmanEnvironment implements CustomEntity, Serializable {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getContentHash() {
-        return contentHash;
-    }
-
-    public void setContentHash(String contentHash) {
-        this.contentHash = contentHash;
     }
 
     @Override()
