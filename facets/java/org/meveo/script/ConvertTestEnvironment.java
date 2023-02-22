@@ -49,7 +49,7 @@ public class ConvertTestEnvironment extends Script {
     private MeveoModuleService moduleService = getCDIBean(MeveoModuleService.class);
 	private Repository defaultRepo = repositoryService.findDefaultRepository();
     private CurrentUserProducer currentUserProducer = getCDIBean(CurrentUserProducer.class);
-    private final MeveoUser currentUser = currentUserProducer.getCurrentUser();  
+    private final MeveoUser currentUser = currentUserProducer.getCurrentUser();
 
     private String result;
     public String getResult() {
@@ -127,7 +127,7 @@ public class ConvertTestEnvironment extends Script {
         final PrintWriter pw = new PrintWriter(sw, true);
         throwable.printStackTrace(pw);
         return sw.getBuffer().toString();
-   }
+    }
 
 //    private Credential getCurrentCredential() {
 //         try {
