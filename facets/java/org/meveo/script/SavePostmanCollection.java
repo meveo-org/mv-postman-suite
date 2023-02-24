@@ -6,6 +6,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataOutput;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.json.simple.JSONObject;
@@ -76,7 +77,7 @@ public class SavePostmanCollection extends Script {
                 String jsonStr = json.toString();
 
                 PostmanCollection postmanTestCollection = new PostmanCollection();
-                postmanTestCollection.setCode(f.getName());
+                postmanTestCollection.setCode(StringUtils.removeEnd(f.getName(), ".postman_collection.json") + "_(0)");
                 postmanTestCollection.setContent(jsonStr);
                 postmanTestCollection.setContentHash(getChecksum(jsonStr));
 
