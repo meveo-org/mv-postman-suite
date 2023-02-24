@@ -1,0 +1,23 @@
+{
+  "code" : "SavePostmanCollection",
+  "secured" : true,
+  "checkPathParams" : true,
+  "serviceCode" : "org.meveo.postman.SavePostmanCollection",
+  "synchronous" : true,
+  "method" : "GET",
+  "parameterMappings" : [ {
+    "serviceParameter" : "moduleCode",
+    "multivalued" : false,
+    "parameterName" : "moduleCode",
+    "valueRequired" : false
+  } ],
+  "pathParameters" : [ ],
+  "roles" : [ ],
+  "serializeResult" : false,
+  "contentType" : "application/json",
+  "basePath" : "SavePostmanCollection",
+  "path" : "/",
+  "pool" : {
+    "usePool" : false
+  }
+}

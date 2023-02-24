@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.meveo.service.storage.RepositoryService;
 import org.meveo.service.crm.impl.CurrentUserProducer;
 import org.meveo.service.admin.impl.MeveoModuleService;
@@ -37,7 +39,7 @@ import org.graalvm.polyglot.HostAccess;
 
 public class SavePostmanCollection extends Script {
 	
-	private final static Logger log = LoggerFactory.getLogger(NhanTesting.class);
+	private final static Logger log = LoggerFactory.getLogger(SavePostmanCollection.class);
     private CrossStorageApi crossStorageApi = getCDIBean(CrossStorageApi.class);
     private RepositoryService repositoryService = getCDIBean(RepositoryService.class);
     private MeveoModuleService moduleService = getCDIBean(MeveoModuleService.class);
@@ -69,15 +71,19 @@ public class SavePostmanCollection extends Script {
             var files = modulePathDoc.toPath().resolve("facets").resolve("postman").toFile();
             for (File f : files.listFiles()) {
 
+                JSONParser parser = new JSONParser();
+                JSONObject json = (JSONObject) parser.parse(readFile(f));
+                String jsonStr = json.toString();
+
                 PostmanCollection postmanTestCollection = new PostmanCollection();
                 postmanTestCollection.setCode(f.getName());
-                postmanTestCollection.setContent(readFile(f));
-                postmanTestCollection.setContentHash(getChecksum(f));
+                postmanTestCollection.setContent(jsonStr);
+                postmanTestCollection.setContentHash(getChecksum(jsonStr));
 
                 try {
                     crossStorageApi.createOrUpdate(defaultRepo, postmanTestCollection);
                 } catch (Exception e) {
-                    throw new RuntimeException("Failed to save followed merchant.", e);
+                    throw new RuntimeException("Failed to save postman collection.", e);
                 }
             }
         } catch (Exception ex) {
@@ -106,6 +112,20 @@ public class SavePostmanCollection extends Script {
             MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(Files.readAllBytes(file.toPath()));
             byte[] digest = md.digest();
+            checksum = DatatypeConverter.printHexBinary(digest).toUpperCase();
+            
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+		return checksum;
+    }
+
+    private String getChecksum(String content) throws IOException {
+		String checksum = "";
+        try {
+            byte[] bytesOfContent = content.getBytes("UTF-8");
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digest = md.digest(bytesOfContent);
             checksum = DatatypeConverter.printHexBinary(digest).toUpperCase();
             
         } catch (NoSuchAlgorithmException e) {

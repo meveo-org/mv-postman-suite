@@ -8,7 +8,9 @@
   "moduleDependencies" : [ {
     "code" : "mv-api-test",
     "description" : "Api testing",
-    "currentVersion" : "0.1"
+    "currentVersion" : "0.1",
+    "gitUrl" : "https://github.com/telecelplay/mv-api-test.git",
+    "gitBranch" : "master"
   } ],
   "moduleFiles" : [ ]
 }
