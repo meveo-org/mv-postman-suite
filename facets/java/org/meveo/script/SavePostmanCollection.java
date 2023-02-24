@@ -39,7 +39,7 @@ import org.graalvm.polyglot.HostAccess;
 
 public class SavePostmanCollection extends Script {
 	
-	private final static Logger log = LoggerFactory.getLogger(NhanTesting.class);
+	private final static Logger log = LoggerFactory.getLogger(SavePostmanCollection.class);
     private CrossStorageApi crossStorageApi = getCDIBean(CrossStorageApi.class);
     private RepositoryService repositoryService = getCDIBean(RepositoryService.class);
     private MeveoModuleService moduleService = getCDIBean(MeveoModuleService.class);
