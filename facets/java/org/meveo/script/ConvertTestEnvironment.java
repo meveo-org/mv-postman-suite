@@ -63,16 +63,12 @@ public class ConvertTestEnvironment extends Script {
         try {
             List<PostmanEnvironment> env = crossStorageApi.find(PostmanEnvironment.class).limit(1).getResults();
 
-            if (env == null) {
+            if (env == null || env.size() == 0) {
+                result = "Not found environment information.";
                 return;
             }
 
             var postmanEnv = env.get(0);
-
-            if (postmanEnv == null) {
-                result = "Not found any postman environment.";   
-                return;
-            }
 
             var testEnv = loadEnvironment(postmanEnv);
 
